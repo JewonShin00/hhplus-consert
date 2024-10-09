@@ -28,7 +28,7 @@
 5. 대기열 시스템 적용: 특정 콘서트에 다수의 예약 요청이 들어올 경우, 대기열을 통해 순차적으로 처리.
 
 ## 시퀀스 다이어그램
-- 시퀀스 다이어그램 : [콘서트 예약 시퀀스 다이어그램 보기](https://www.mermaidchart.com/app/projects/1c541417-ba14-4187-8f3e-1817924b88a1/diagrams/060b5af4-3762-427d-9113-69b91df6a996/version/v0.1/edit)
+- 시퀀스 다이어그램 : [콘서트 예약 시퀀스 다이어그램 보기](https://www.mermaidchart.com/raw/060b5af4-3762-427d-9113-69b91df6a996?theme=light&version=v0.1&format=svg)
 
 ## 플로우차트
-- 플로우차트 : [콘서트 예약 플로우차트 보기](https://www.mermaidchart.com/app/projects/1c541417-ba14-4187-8f3e-1817924b88a1/diagrams/df76235a-8f40-41a9-a8a0-891f4a5ebfdd/version/v0.1/edit)
+- 플로우차트 : [콘서트 예약 플로우차트 보기](https://www.mermaidchart.com/raw/9baf529a-5848-4efe-97f5-6dfb5c29c068?theme=light&version=v0.1&format=svg)
