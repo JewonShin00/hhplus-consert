@@ -43,10 +43,10 @@
 - HTTP 메서드: GET
 - URL: /concerts
 - 요청 데이터:
- * String location (optional): 특정 지역의 콘서트만 조회 (예: Seoul)
- * LocalDate date (optional): 특정 날짜에 열리는 콘서트만 조회
+    - String location (optional): 특정 지역의 콘서트만 조회 (예: Seoul)
+    - LocalDate date (optional): 특정 날짜에 열리는 콘서트만 조회
 - 응답 DTO: ConcertListResponse
- - List<ConcertDTO> concerts: 예약 가능한 콘서트 목록
+    - List<ConcertDTO> concerts: 예약 가능한 콘서트 목록
 - ConcertDTO:
  - String concertId: 콘서트 ID
  - String title: 콘서트 제목
