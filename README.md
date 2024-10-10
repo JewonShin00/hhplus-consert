@@ -34,5 +34,79 @@
 ## 플로우차트
 - 플로우차트 : [콘서트 예약 플로우차트 보기](https://www.mermaidchart.com/raw/9baf529a-5848-4efe-97f5-6dfb5c29c068?theme=light&version=v0.1&format=svg)
 
+## ERD
+- ERD : [콘서트 예약 ERD 보기](https://www.mermaidchart.com/raw/bdfee6f8-ff60-4125-bdd1-bb5a7716e8ba?theme=light&version=v0.1&format=svg)
+  
+## API 명세서
+1. 콘서트 목록 조회
+- 설명: 예약할 수 있는 콘서트 목록을 가져옵니다.
+- HTTP 메서드: GET
+- URL: /concerts
+- 요청 데이터:
+    - String location (optional): 특정 지역의 콘서트만 조회 (예: Seoul)
+    - LocalDate date (optional): 특정 날짜에 열리는 콘서트만 조회
+- 응답 DTO: ConcertListResponse
+    - List<ConcertDTO> concerts: 예약 가능한 콘서트 목록
+- ConcertDTO:
+    - String concertId: 콘서트 ID
+    - String title: 콘서트 제목
+    - LocalDate date: 콘서트 날짜
+    - String location: 콘서트 장소
+
+2. 특정 콘서트의 좌석 목록 조회
+- 설명: 특정 콘서트에서 예약할 수 있는 좌석 목록을 보여줍니다.
+- HTTP 메서드: GET
+- URL: /concerts/{concertId}/seats
+- 요청 데이터:
+    - boolean onlyAvailable (optional): true일 경우 예약 가능한 좌석만 조회
+- 응답 DTO: SeatListResponse
+    - List<SeatDTO> seats: 해당 콘서트의 좌석 목록
+- SeatDTO:
+    - String seatId: 좌석 ID
+    - int seatNumber: 좌석 번호
+    - boolean isReserved: 좌석 예약 여부
+    - boolean isTempReserved: 임시 예약 여부
+    - LocalDateTime reservedUntil: 임시 예약 만료 시간 (임시 예약인 경우)
+
+3. 좌석 예약하기
+- 설명: 사용자가 특정 좌석을 예약합니다.
+- HTTP 메서드: POST
+- URL: /reservations
+- 요청 DTO: ReservationRequest
+    - String userId: 사용자 ID
+    - String concertId: 콘서트 ID
+    - String seatId: 좌석 ID
+- 응답 DTO: ReservationResponse
+    - String reservationId: 예약 ID
+    - String status: 예약 상태 (TEMP, CONFIRMED)
+    - LocalDateTime expiresAt: 임시 예약 만료 시간
+
+4. 결제 요청
+- 설명: 사용자가 예약한 좌석을 결제합니다.
+- HTTP 메서드: POST
+- URL: /payments
+- 요청 DTO: PaymentRequest
+    - String userId: 사용자 ID
+    - String reservationId: 예약 ID
+    - int amount: 결제 금액
+- 응답 DTO: PaymentResponse
+    - String paymentId: 결제 ID
+    - String status: 결제 상태 (SUCCESS, FAILED)
+
+5. 대기열 상태 조회
+- 설명: 사용자의 대기열 상태를 조회합니다.
+- HTTP 메서드: GET
+- URL: /queue/status
+- 요청 파라미터:
+    - String userId: 사용자 ID
+    - String concertId: 콘서트 ID
+- 응답 DTO: QueueStatusResponse
+    - String userId: 사용자 ID
+    - String concertId: 콘서트 ID
+    - int position: 대기열 순번
+    - String status: 대기열 상태 (WAITING, PROCESSING, COMPLETED)
+
+## Mock API
+- [Mock API](https://github.com/JewonShin00/hhplus-consert/pull/18)
 
 
