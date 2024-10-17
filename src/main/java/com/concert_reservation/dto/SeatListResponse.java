@@ -1,30 +1,24 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.util.ArrayList;
 import java.util.List;
-import org.openapitools.model.SeatDTO;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
+import java.util.Objects;
+
+import javax.annotation.Generated;
 import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
-import javax.annotation.Generated;
-
 /**
- * SeatListResponse
+ * 좌석 목록 응답 DTO
  */
-
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class SeatListResponse {
 
   @Valid
+  @Schema(name = "seats", description = "좌석 목록", required = true)
   private List<@Valid SeatDTO> seats;
 
   public SeatListResponse seats(List<@Valid SeatDTO> seats) {
@@ -40,12 +34,8 @@ public class SeatListResponse {
     return this;
   }
 
-  /**
-   * Get seats
-   * @return seats
-  */
-  @Valid 
-  @Schema(name = "seats", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Valid
+  @Schema(name = "seats", description = "좌석 목록", required = true)
   @JsonProperty("seats")
   public List<@Valid SeatDTO> getSeats() {
     return seats;
@@ -81,10 +71,6 @@ public class SeatListResponse {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -92,4 +78,3 @@ public class SeatListResponse {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

@@ -1,35 +1,29 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * PaymentResponse
- */
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 결제 응답 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class PaymentResponse {
 
+  @Schema(name = "paymentId", description = "결제 ID", required = true)
   private String paymentId;
 
   /**
-   * Gets or Sets status
+   * 결제 상태
    */
   public enum StatusEnum {
     SUCCESS("SUCCESS"),
-    
     FAILED("FAILED");
 
     private String value;
@@ -59,20 +53,11 @@ public class PaymentResponse {
     }
   }
 
+  @Schema(name = "status", description = "결제 상태", required = true)
   private StatusEnum status;
 
-  public PaymentResponse paymentId(String paymentId) {
-    this.paymentId = paymentId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get paymentId
-   * @return paymentId
-  */
-  
-  @Schema(name = "paymentId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("paymentId")
   public String getPaymentId() {
     return paymentId;
   }
@@ -81,18 +66,6 @@ public class PaymentResponse {
     this.paymentId = paymentId;
   }
 
-  public PaymentResponse status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-  */
-  
-  @Schema(name = "status", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("status")
   public StatusEnum getStatus() {
     return status;
   }
@@ -129,10 +102,6 @@ public class PaymentResponse {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -140,4 +109,3 @@ public class PaymentResponse {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

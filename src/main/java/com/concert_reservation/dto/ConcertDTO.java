@@ -1,49 +1,37 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
-import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import java.time.LocalDate;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.Objects;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * ConcertDTO
- */
+import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 콘서트 정보 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class ConcertDTO {
 
+  @Schema(name = "concertId", description = "콘서트 ID", required = true)
   private String concertId;
 
+  @Schema(name = "title", description = "콘서트 제목", required = true)
   private String title;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  @Schema(name = "date", description = "콘서트 날짜", required = true)
   private LocalDate date;
 
+  @Schema(name = "location", description = "콘서트 장소", required = true)
   private String location;
 
-  public ConcertDTO concertId(String concertId) {
-    this.concertId = concertId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get concertId
-   * @return concertId
-  */
-  
-  @Schema(name = "concertId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("concertId")
   public String getConcertId() {
     return concertId;
   }
@@ -52,18 +40,6 @@ public class ConcertDTO {
     this.concertId = concertId;
   }
 
-  public ConcertDTO title(String title) {
-    this.title = title;
-    return this;
-  }
-
-  /**
-   * Get title
-   * @return title
-  */
-  
-  @Schema(name = "title", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("title")
   public String getTitle() {
     return title;
   }
@@ -72,18 +48,6 @@ public class ConcertDTO {
     this.title = title;
   }
 
-  public ConcertDTO date(LocalDate date) {
-    this.date = date;
-    return this;
-  }
-
-  /**
-   * Get date
-   * @return date
-  */
-  @Valid 
-  @Schema(name = "date", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("date")
   public LocalDate getDate() {
     return date;
   }
@@ -92,18 +56,6 @@ public class ConcertDTO {
     this.date = date;
   }
 
-  public ConcertDTO location(String location) {
-    this.location = location;
-    return this;
-  }
-
-  /**
-   * Get location
-   * @return location
-  */
-  
-  @Schema(name = "location", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("location")
   public String getLocation() {
     return location;
   }
@@ -144,10 +96,6 @@ public class ConcertDTO {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -155,4 +103,3 @@ public class ConcertDTO {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

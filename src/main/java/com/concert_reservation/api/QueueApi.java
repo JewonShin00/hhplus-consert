@@ -3,7 +3,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package com.concert_reservation.controller;
+package com.concert_reservation.api;
 
 import javax.validation.constraints.NotNull;
 

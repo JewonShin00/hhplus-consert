@@ -1,44 +1,30 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * PaymentRequest
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 결제 요청 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class PaymentRequest {
 
+  @Schema(name = "userId", description = "사용자 ID", required = true)
   private String userId;
 
+  @Schema(name = "reservationId", description = "예약 ID", required = true)
   private String reservationId;
 
+  @Schema(name = "amount", description = "결제 금액", required = true)
   private Integer amount;
 
-  public PaymentRequest userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get userId
-   * @return userId
-  */
-  
-  @Schema(name = "userId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("userId")
   public String getUserId() {
     return userId;
   }
@@ -47,18 +33,6 @@ public class PaymentRequest {
     this.userId = userId;
   }
 
-  public PaymentRequest reservationId(String reservationId) {
-    this.reservationId = reservationId;
-    return this;
-  }
-
-  /**
-   * Get reservationId
-   * @return reservationId
-  */
-  
-  @Schema(name = "reservationId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reservationId")
   public String getReservationId() {
     return reservationId;
   }
@@ -67,18 +41,6 @@ public class PaymentRequest {
     this.reservationId = reservationId;
   }
 
-  public PaymentRequest amount(Integer amount) {
-    this.amount = amount;
-    return this;
-  }
-
-  /**
-   * Get amount
-   * @return amount
-  */
-  
-  @Schema(name = "amount", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("amount")
   public Integer getAmount() {
     return amount;
   }
@@ -117,10 +79,6 @@ public class PaymentRequest {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -128,4 +86,3 @@ public class PaymentRequest {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

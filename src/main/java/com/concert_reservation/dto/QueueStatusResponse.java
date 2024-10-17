@@ -1,41 +1,36 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * QueueStatusResponse
- */
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 대기열 상태 응답 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class QueueStatusResponse {
 
+  @Schema(name = "userId", description = "사용자 ID", required = true)
   private String userId;
 
+  @Schema(name = "concertId", description = "콘서트 ID", required = true)
   private String concertId;
 
+  @Schema(name = "position", description = "대기 순번", required = true)
   private Integer position;
 
   /**
-   * Gets or Sets status
+   * 대기 상태
    */
   public enum StatusEnum {
     WAITING("WAITING"),
-    
     PROCESSING("PROCESSING"),
-    
     COMPLETED("COMPLETED");
 
     private String value;
@@ -65,20 +60,11 @@ public class QueueStatusResponse {
     }
   }
 
+  @Schema(name = "status", description = "대기 상태", required = true)
   private StatusEnum status;
 
-  public QueueStatusResponse userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get userId
-   * @return userId
-  */
-  
-  @Schema(name = "userId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("userId")
   public String getUserId() {
     return userId;
   }
@@ -87,18 +73,6 @@ public class QueueStatusResponse {
     this.userId = userId;
   }
 
-  public QueueStatusResponse concertId(String concertId) {
-    this.concertId = concertId;
-    return this;
-  }
-
-  /**
-   * Get concertId
-   * @return concertId
-  */
-  
-  @Schema(name = "concertId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("concertId")
   public String getConcertId() {
     return concertId;
   }
@@ -107,18 +81,6 @@ public class QueueStatusResponse {
     this.concertId = concertId;
   }
 
-  public QueueStatusResponse position(Integer position) {
-    this.position = position;
-    return this;
-  }
-
-  /**
-   * Get position
-   * @return position
-  */
-  
-  @Schema(name = "position", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("position")
   public Integer getPosition() {
     return position;
   }
@@ -127,18 +89,6 @@ public class QueueStatusResponse {
     this.position = position;
   }
 
-  public QueueStatusResponse status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-  */
-  
-  @Schema(name = "status", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("status")
   public StatusEnum getStatus() {
     return status;
   }
@@ -179,10 +129,6 @@ public class QueueStatusResponse {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -190,4 +136,3 @@ public class QueueStatusResponse {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

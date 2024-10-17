@@ -1,4 +1,4 @@
-package com.concert_reservation.controller;
+package com.concert_reservation.config;
 
 import java.io.IOException;
 

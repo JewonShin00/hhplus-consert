@@ -1,83 +1,31 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.OffsetDateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * ReservationResponse
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 예약 응답 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class ReservationResponse {
 
+  @Schema(name = "reservationId", description = "예약 ID", required = true)
   private String reservationId;
 
-  /**
-   * Gets or Sets status
-   */
-  public enum StatusEnum {
-    TEMP("TEMP"),
-    
-    CONFIRMED("CONFIRMED");
+  @Schema(name = "status", description = "예약 상태", required = true)
+  private String status;
 
-    private String value;
-
-    StatusEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static StatusEnum fromValue(String value) {
-      for (StatusEnum b : StatusEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
-  private StatusEnum status;
-
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @Schema(name = "expiresAt", description = "예약 만료 시간", required = true)
   private OffsetDateTime expiresAt;
 
-  public ReservationResponse reservationId(String reservationId) {
-    this.reservationId = reservationId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get reservationId
-   * @return reservationId
-  */
-  
-  @Schema(name = "reservationId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reservationId")
   public String getReservationId() {
     return reservationId;
   }
@@ -86,38 +34,14 @@ public class ReservationResponse {
     this.reservationId = reservationId;
   }
 
-  public ReservationResponse status(StatusEnum status) {
-    this.status = status;
-    return this;
-  }
-
-  /**
-   * Get status
-   * @return status
-  */
-  
-  @Schema(name = "status", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("status")
-  public StatusEnum getStatus() {
+  public String getStatus() {
     return status;
   }
 
-  public void setStatus(StatusEnum status) {
+  public void setStatus(String status) {
     this.status = status;
   }
 
-  public ReservationResponse expiresAt(OffsetDateTime expiresAt) {
-    this.expiresAt = expiresAt;
-    return this;
-  }
-
-  /**
-   * Get expiresAt
-   * @return expiresAt
-  */
-  @Valid 
-  @Schema(name = "expiresAt", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("expiresAt")
   public OffsetDateTime getExpiresAt() {
     return expiresAt;
   }
@@ -156,10 +80,6 @@ public class ReservationResponse {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -167,4 +87,3 @@ public class ReservationResponse {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

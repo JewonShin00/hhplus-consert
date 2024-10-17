@@ -1,44 +1,30 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * ReservationRequest
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 예약 요청 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class ReservationRequest {
 
+  @Schema(name = "userId", description = "사용자 ID", required = true)
   private String userId;
 
+  @Schema(name = "concertId", description = "콘서트 ID", required = true)
   private String concertId;
 
+  @Schema(name = "seatId", description = "좌석 ID", required = true)
   private String seatId;
 
-  public ReservationRequest userId(String userId) {
-    this.userId = userId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get userId
-   * @return userId
-  */
-  
-  @Schema(name = "userId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("userId")
   public String getUserId() {
     return userId;
   }
@@ -47,18 +33,6 @@ public class ReservationRequest {
     this.userId = userId;
   }
 
-  public ReservationRequest concertId(String concertId) {
-    this.concertId = concertId;
-    return this;
-  }
-
-  /**
-   * Get concertId
-   * @return concertId
-  */
-  
-  @Schema(name = "concertId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("concertId")
   public String getConcertId() {
     return concertId;
   }
@@ -67,18 +41,6 @@ public class ReservationRequest {
     this.concertId = concertId;
   }
 
-  public ReservationRequest seatId(String seatId) {
-    this.seatId = seatId;
-    return this;
-  }
-
-  /**
-   * Get seatId
-   * @return seatId
-  */
-  
-  @Schema(name = "seatId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("seatId")
   public String getSeatId() {
     return seatId;
   }
@@ -117,10 +79,6 @@ public class ReservationRequest {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -128,4 +86,3 @@ public class ReservationRequest {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

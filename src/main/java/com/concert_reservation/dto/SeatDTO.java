@@ -1,51 +1,37 @@
-package org.openapitools.model;
+package com.concert_reservation.dto;
 
-import java.net.URI;
+import java.time.OffsetDateTime;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import java.time.OffsetDateTime;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.time.OffsetDateTime;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
-import io.swagger.v3.oas.annotations.media.Schema;
 
-
-import java.util.*;
 import javax.annotation.Generated;
 
-/**
- * SeatDTO
- */
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * 좌석 정보 DTO
+ */
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 public class SeatDTO {
 
+  @Schema(name = "seatId", description = "좌석 ID", required = true)
   private String seatId;
 
+  @Schema(name = "seatNumber", description = "좌석 번호", required = true)
   private Integer seatNumber;
 
+  @Schema(name = "isReserved", description = "예약 여부", required = true)
   private Boolean isReserved;
 
+  @Schema(name = "isTempReserved", description = "임시 예약 여부", required = true)
   private Boolean isTempReserved;
 
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @Schema(name = "reservedUntil", description = "예약 만료 시간")
   private OffsetDateTime reservedUntil;
 
-  public SeatDTO seatId(String seatId) {
-    this.seatId = seatId;
-    return this;
-  }
+  // Getters and Setters
 
-  /**
-   * Get seatId
-   * @return seatId
-  */
-  
-  @Schema(name = "seatId", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("seatId")
   public String getSeatId() {
     return seatId;
   }
@@ -54,18 +40,6 @@ public class SeatDTO {
     this.seatId = seatId;
   }
 
-  public SeatDTO seatNumber(Integer seatNumber) {
-    this.seatNumber = seatNumber;
-    return this;
-  }
-
-  /**
-   * Get seatNumber
-   * @return seatNumber
-  */
-  
-  @Schema(name = "seatNumber", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("seatNumber")
   public Integer getSeatNumber() {
     return seatNumber;
   }
@@ -74,18 +48,6 @@ public class SeatDTO {
     this.seatNumber = seatNumber;
   }
 
-  public SeatDTO isReserved(Boolean isReserved) {
-    this.isReserved = isReserved;
-    return this;
-  }
-
-  /**
-   * Get isReserved
-   * @return isReserved
-  */
-  
-  @Schema(name = "isReserved", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isReserved")
   public Boolean getIsReserved() {
     return isReserved;
   }
@@ -94,18 +56,6 @@ public class SeatDTO {
     this.isReserved = isReserved;
   }
 
-  public SeatDTO isTempReserved(Boolean isTempReserved) {
-    this.isTempReserved = isTempReserved;
-    return this;
-  }
-
-  /**
-   * Get isTempReserved
-   * @return isTempReserved
-  */
-  
-  @Schema(name = "isTempReserved", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("isTempReserved")
   public Boolean getIsTempReserved() {
     return isTempReserved;
   }
@@ -114,18 +64,6 @@ public class SeatDTO {
     this.isTempReserved = isTempReserved;
   }
 
-  public SeatDTO reservedUntil(OffsetDateTime reservedUntil) {
-    this.reservedUntil = reservedUntil;
-    return this;
-  }
-
-  /**
-   * Get reservedUntil
-   * @return reservedUntil
-  */
-  @Valid 
-  @Schema(name = "reservedUntil", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("reservedUntil")
   public OffsetDateTime getReservedUntil() {
     return reservedUntil;
   }
@@ -168,10 +106,6 @@ public class SeatDTO {
     return sb.toString();
   }
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
   private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
@@ -179,4 +113,3 @@ public class SeatDTO {
     return o.toString().replace("\n", "\n    ");
   }
 }
-
