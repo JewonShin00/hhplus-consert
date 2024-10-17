@@ -1,4 +1,4 @@
-package com.concert_reservation.integration;
+package com.concert_reservation.service;
 
 import com.concert_reservation.service.SeatReservationService;
 import org.junit.jupiter.api.Test;
