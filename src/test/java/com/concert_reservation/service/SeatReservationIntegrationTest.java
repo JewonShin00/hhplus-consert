@@ -20,4 +20,5 @@ public class SeatReservationIntegrationTest {
 		// 예약 성공 여부 확인
 		assertTrue(success, "좌석이 성공적으로 예약되었습니다.");
 	}
+
 }
