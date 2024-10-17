@@ -23,5 +23,4 @@ public class QueuePositionInquiryIntegrationTest {
 		// 대기 순번이 예상한 값과 일치하는지 확인
 		assertEquals(1, position, "대기 순번이 정확하게 조회되었습니다.");
 	}
-
 }
