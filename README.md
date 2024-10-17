@@ -1,7 +1,7 @@
 ## <항해 플러 백엔드 6기 과정_콘서트 예약 서비스>
 -------------------------------------------------
 
-## 선정한 시나리오 : 콘서트 예약 서비스
+## 선정한 시나리오 : 콘서트 예약 서비스 
 - 마일스톤 : [콘서트 예약 마일스톤 보기](https://github.com/users/JewonShin00/projects/2)
 
 ## [콘서트 예약 서비스 요구사항 분석]
@@ -109,4 +109,13 @@
 ## Mock API
 - [Mock API](https://github.com/JewonShin00/hhplus-consert/pull/18)
 
+---------------------------------------------------------------------------
+## STEP07
 
+## API Swagger 기능 구현 및 캡쳐본 첨부
+![swagger](https://github.com/user-attachments/assets/13c26bcb-cc51-4b23-8106-6aa1e83677c4)
+## 주요 비즈니스 로직 개발 및 단위 테스트 작성
+- [대기열 발급 기능 구현](https://github.com/JewonShin00/hhplus-consert/pull/21/commits/bbf75d2a88c8c319f57c9e034e6a97ce21d4b985)
+- [대기순번조회 기능 구현(대기열 발급 PR참고) ]
+- [좌석 예약 기능 구현](https://github.com/JewonShin00/hhplus-consert/pull/22/commits/bcce02042c61ff72c059497fa432e960418fc85b)
+- [결제 기능 관련](https://github.com/JewonShin00/hhplus-consert/pull/20/commits/daf1a562250ce0ea1aa064d718f71690077367ac)
