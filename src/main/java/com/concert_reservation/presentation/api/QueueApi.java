@@ -3,17 +3,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package com.concert_reservation.api;
-
-import javax.validation.constraints.NotNull;
-
-import java.util.Optional;
-
-import javax.annotation.Generated;
-import javax.validation.Valid;
+package com.concert_reservation.presentation.api;
 
 import com.concert_reservation.config.ApiUtil;
-import com.concert_reservation.dto.QueueStatusResponse;
+import com.concert_reservation.presentation.dto.QueueStatusResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +23,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.annotation.Generated;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 @Validated

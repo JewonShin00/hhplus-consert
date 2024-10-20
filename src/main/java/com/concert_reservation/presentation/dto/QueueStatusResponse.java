@@ -1,11 +1,10 @@
-package com.concert_reservation.dto;
+package com.concert_reservation.presentation.dto;
 
 import java.util.Objects;
 
 import javax.annotation.Generated;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import io.swagger.v3.oas.annotations.media.Schema;

@@ -1,4 +1,4 @@
-package com.concert_reservation.dto;
+package com.concert_reservation.presentation.dto;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -6,8 +6,6 @@ import java.util.Objects;
 import javax.annotation.Generated;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

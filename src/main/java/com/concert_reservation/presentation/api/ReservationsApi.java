@@ -3,16 +3,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package com.concert_reservation.api;
-
-import java.util.Optional;
-
-import javax.annotation.Generated;
-import javax.validation.Valid;
+package com.concert_reservation.presentation.api;
 
 import com.concert_reservation.config.ApiUtil;
-import com.concert_reservation.dto.PaymentRequest;
-import com.concert_reservation.dto.PaymentResponse;
+import com.concert_reservation.presentation.dto.ReservationRequest;
+import com.concert_reservation.presentation.dto.ReservationResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,50 +23,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import javax.annotation.Generated;
+import javax.validation.Valid;
+import java.util.Optional;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-10-16T21:38:13.756543200+09:00[Asia/Seoul]")
 @Validated
-@Tag(name = "payments", description = "the payments API")
-public interface PaymentsApi {
+@Tag(name = "reservations", description = "the reservations API")
+public interface ReservationsApi {
 
     default Optional<NativeWebRequest> getRequest() {
         return Optional.empty();
     }
 
     /**
-     * POST /payments : 사용자가 예약한 좌석을 결제합니다.
+     * POST /reservations : 사용자가 특정 좌석을 예약합니다.
      *
-     * @param paymentRequest  (required)
-     * @return Payment processed (status code 200)
+     * @param reservationRequest  (required)
+     * @return Reservation created (status code 200)
      */
     @Operation(
-        operationId = "paymentsPost",
-        summary = "사용자가 예약한 좌석을 결제합니다.",
+        operationId = "reservationsPost",
+        summary = "사용자가 특정 좌석을 예약합니다.",
         responses = {
-            @ApiResponse(responseCode = "200", description = "Payment processed", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = PaymentResponse.class))
+            @ApiResponse(responseCode = "200", description = "Reservation created", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ReservationResponse.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/payments",
+        value = "/reservations",
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<PaymentResponse> paymentsPost(
-        @Parameter(name = "PaymentRequest", description = "", required = true) @Valid @RequestBody PaymentRequest paymentRequest
+    default ResponseEntity<ReservationResponse> reservationsPost(
+        @Parameter(name = "ReservationRequest", description = "", required = true) @Valid @RequestBody ReservationRequest reservationRequest
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"paymentId\" : \"paymentId\", \"status\" : \"SUCCESS\" }";
+                    String exampleString = "{ \"reservationId\" : \"reservationId\", \"expiresAt\" : \"2000-01-23T04:56:07.000+00:00\", \"status\" : \"TEMP\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

@@ -1,4 +1,4 @@
-package com.concert_reservation.service;
+package com.concert_reservation.application;
 
 import org.springframework.stereotype.Service;
 

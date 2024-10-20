@@ -1,4 +1,4 @@
-package com.concert_reservation.service;
+package com.concert_reservation.application;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.ConcurrentHashMap;

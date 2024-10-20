@@ -1,6 +1,5 @@
-package com.concert_reservation.service;
+package com.concert_reservation.application;
 
-import com.concert_reservation.service.SeatReservationService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

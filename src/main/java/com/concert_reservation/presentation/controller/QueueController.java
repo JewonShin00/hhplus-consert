@@ -1,7 +1,7 @@
-package com.concert_reservation.controller;
+package com.concert_reservation.presentation.controller;
 
-import com.concert_reservation.dto.QueueStatusResponse;
-import com.concert_reservation.service.QueueService;
+import com.concert_reservation.presentation.dto.QueueStatusResponse;
+import com.concert_reservation.application.QueueService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;

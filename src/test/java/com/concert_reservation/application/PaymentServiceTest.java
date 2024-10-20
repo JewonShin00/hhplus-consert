@@ -1,4 +1,4 @@
-package com.concert_reservation.service;
+package com.concert_reservation.application;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

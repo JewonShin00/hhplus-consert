@@ -1,6 +1,6 @@
-package com.concert_reservation.controller;
+package com.concert_reservation.presentation.controller;
 
-import com.concert_reservation.service.SeatReservationService;
+import com.concert_reservation.application.SeatReservationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;

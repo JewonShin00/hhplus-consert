@@ -1,4 +1,4 @@
-package com.concert_reservation.dto;
+package com.concert_reservation.presentation.dto;
 
 import java.util.ArrayList;
 import java.util.List;

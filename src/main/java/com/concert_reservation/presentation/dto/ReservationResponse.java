@@ -1,11 +1,9 @@
-package com.concert_reservation.dto;
+package com.concert_reservation.presentation.dto;
 
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
 import javax.annotation.Generated;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
