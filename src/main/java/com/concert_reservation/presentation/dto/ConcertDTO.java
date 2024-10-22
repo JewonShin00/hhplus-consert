@@ -3,7 +3,7 @@ package com.concert_reservation.presentation.dto;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 import org.springframework.format.annotation.DateTimeFormat;
 

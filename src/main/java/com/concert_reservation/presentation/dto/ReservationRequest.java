@@ -2,7 +2,7 @@ package com.concert_reservation.presentation.dto;
 
 import java.util.Objects;
 
-import javax.annotation.Generated;
+import jakarta.annotation.Generated;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

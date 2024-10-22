@@ -2,7 +2,7 @@ package com.concert_reservation.config;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.web.context.request.NativeWebRequest;
 

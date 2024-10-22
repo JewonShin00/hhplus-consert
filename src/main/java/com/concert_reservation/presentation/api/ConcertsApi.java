@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.NativeWebRequest;
 
-import javax.annotation.Generated;
-import javax.validation.Valid;
+import jakarta.annotation.Generated;
+import jakarta.validation.Valid;
 import java.time.LocalDate;
 import java.util.Optional;
 
