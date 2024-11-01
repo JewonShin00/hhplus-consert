@@ -7,7 +7,9 @@ import org.springframework.stereotype.Repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ConcertRepositoryImpl implements ConcertRepository {
@@ -24,8 +26,14 @@ public class ConcertRepositoryImpl implements ConcertRepository {
                 .getResultList();
     }
 
+
     @Override
-    public List<Concert> findByDate(String date) {
-        return List.of();
+    public Optional<Concert> findById(Long id) {
+        // ID로 콘서트를 조회하는 JPQL 쿼리
+        String query = "SELECT c FROM Concert c WHERE c.concertId = :id";
+        List<Concert> results = entityManager.createQuery(query, Concert.class)
+                .setParameter("id", id)
+                .getResultList();
+        return results.stream().findFirst(); // 결과가 있으면 첫 번째 항목 반환, 없으면 빈 Optional 반환
     }
 }
