@@ -1,30 +1,48 @@
 package com.consertreservation.application.facade;
 
 import com.consertreservation.application.service.facade.WaitlistFacade;
+import com.consertreservation.application.service.usecase.waitlist.AddToWaitlistUseCase;
 import com.consertreservation.application.service.usecase.waitlist.CheckAndEnterIfTurnUseCase;
+import com.consertreservation.application.service.usecase.waitlist.CheckWaitlistForSeatUseCase;
+import com.consertreservation.application.service.usecase.waitlist.GetWaitlistByConcertIdUseCase;
+import com.consertreservation.domain.model.Waitlist;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
-class WaitlistFacadeTest {
+public class WaitlistFacadeTest {
 
-    private WaitlistFacade waitlistFacade;
+    @Mock
     private CheckAndEnterIfTurnUseCase checkAndEnterIfTurnUseCase;
 
-    @BeforeEach
-    void setUp() {
-        checkAndEnterIfTurnUseCase = Mockito.mock(CheckAndEnterIfTurnUseCase.class);
-        waitlistFacade = new WaitlistFacade(checkAndEnterIfTurnUseCase);
-    }
+    @Mock
+    private AddToWaitlistUseCase addToWaitlistUseCase;
 
+    @Mock
+    private GetWaitlistByConcertIdUseCase getWaitlistByConcertIdUseCase;
+
+    @Mock
+    private CheckWaitlistForSeatUseCase checkWaitlistForSeatUseCase;
+
+    @InjectMocks
+    private WaitlistFacade waitlistFacade;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
     @Test
     //대기열에서 첫 번째 순번인 사용자가 입장 가능한지 확인
     void testCheckAndEnterIfTurnCanEnter() {
-        Long userId = 1L;
+        String userId = "user123";
 
         when(checkAndEnterIfTurnUseCase.checkAndEnterIfTurn(userId)).thenReturn(true);
 
@@ -36,7 +54,7 @@ class WaitlistFacadeTest {
     @Test
     //대기열에서 첫 번째 순번이 아닌 사용자가 입장 가능한지 확인
     void testCheckAndEnterIfTurnCannotEnter() {
-        Long userId = 1L;
+        String userId = "user123";
 
         when(checkAndEnterIfTurnUseCase.checkAndEnterIfTurn(userId)).thenReturn(false);
 

@@ -25,7 +25,7 @@ public class WaitlistFacade {
         this.checkWaitlistForSeatUseCase = checkWaitlistForSeatUseCase;
     }
 
-    public boolean checkAndEnterIfTurn(Long userId) {
+    public boolean checkAndEnterIfTurn(String userId) {
         // 유즈케이스 호출
         return checkAndEnterIfTurnUseCase.checkAndEnterIfTurn(userId);
     }

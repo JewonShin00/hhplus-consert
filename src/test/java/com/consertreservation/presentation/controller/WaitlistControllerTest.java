@@ -27,7 +27,7 @@ class WaitlistControllerTest {
     @Test
         //대기열에서 첫 번째 순번인 사용자가 입장 가능한지 확인
     void testCheckAndEnterIfTurnCanEnter() throws Exception {
-        Long userId = 1L;
+        String userId = "user123";
 
         when(waitlistFacade.checkAndEnterIfTurn(userId)).thenReturn(true);
 
@@ -40,7 +40,7 @@ class WaitlistControllerTest {
     @Test
         //대기열에서 첫 번째 순번이 아닌 사용자가 입장 가능한지 확인
     void testCheckAndEnterIfTurnCannotEnter() throws Exception {
-        Long userId = 1L;
+        String userId = "user123";
 
         when(waitlistFacade.checkAndEnterIfTurn(userId)).thenReturn(false);
 

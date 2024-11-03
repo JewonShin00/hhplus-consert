@@ -19,26 +19,14 @@ public class ConcertFacade {
     private final GetConcertsByDateUseCase getConcertsByDateUseCase;
     private final GetDetailConcertByIdUseCase getDetailConcertByIdUseCase;
     private final GetAvailableSeatsByConcertIdUseCase getAvailableSeatsByConcertIdUseCase;
-    private final ReserveSeatUseCase reserveSeatUseCase;
-    private final GetWaitlistByConcertIdUseCase getWaitlistByConcertIdUseCase;
-    private final CheckWaitlistForSeatUseCase checkWaitlistForSeatUseCase;
-    private final AddToWaitlistUseCase addToWaitlistUseCase;
 
 
     public ConcertFacade(GetConcertsByDateUseCase getConcertsByDateUseCase,
                          GetDetailConcertByIdUseCase getDetailConcertByIdUseCase,
-                         GetAvailableSeatsByConcertIdUseCase getAvailableSeatsByConcertIdUseCase,
-                         ReserveSeatUseCase reserveSeatUseCase,
-                         GetWaitlistByConcertIdUseCase getWaitlistByConcertIdUseCase,
-                         CheckWaitlistForSeatUseCase checkWaitlistForSeatUseCase,
-                         AddToWaitlistUseCase addToWaitlistUseCase) {
+                         GetAvailableSeatsByConcertIdUseCase getAvailableSeatsByConcertIdUseCase) {
         this.getConcertsByDateUseCase = getConcertsByDateUseCase;
         this.getDetailConcertByIdUseCase = getDetailConcertByIdUseCase;
         this.getAvailableSeatsByConcertIdUseCase = getAvailableSeatsByConcertIdUseCase;
-        this.reserveSeatUseCase = reserveSeatUseCase;
-        this.checkWaitlistForSeatUseCase = checkWaitlistForSeatUseCase;
-        this.getWaitlistByConcertIdUseCase = getWaitlistByConcertIdUseCase;
-        this.addToWaitlistUseCase = addToWaitlistUseCase;
     }
     //날짜로 콘서트 기본정보 조회
     public List<Concert> getConcertsByDate(LocalDate date) {

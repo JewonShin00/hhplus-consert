@@ -29,11 +29,22 @@ public class Concert {
     public Concert() {}
 
     // 생성자 (필요한 필드만 선택 가능)
-    public Concert(Long concertId, String name, LocalDate date, String location) {
+    public Concert(Long concertId, String name, LocalDate date, String location, String description, Double price, String seatStatus) {
         this.concertId = concertId;
         this.name = name;
         this.date = date;
         this.location = location;
+        this.description = description;
+        this.price = price;
+        this.seatStatus = seatStatus;
+    }
+
+    public Concert(Long concertId, String concert, LocalDate date, String location) {
+        this.concertId = concertId;
+        this.name = concert;
+        this.date = date;
+        this.location = location;
+
     }
 
     // Getter와 Setter 메서드들 추가 (필요시 Lombok으로 자동 생성 가능)

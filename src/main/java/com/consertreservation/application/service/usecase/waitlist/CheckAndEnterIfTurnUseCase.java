@@ -15,14 +15,15 @@ public class CheckAndEnterIfTurnUseCase {
     }
 
     @Transactional
-    public boolean checkAndEnterIfTurn(Long userId) {
+    public boolean checkAndEnterIfTurn(String userId) {
         // 대기열에서 해당 사용자가 첫 번째인지 확인
         Waitlist waitlistEntry = waitlistRepository.findFirstByUserId(userId);
 
         if (waitlistEntry != null && waitlistRepository.isFirstInLine(userId)) {
             // 사용자가 첫 번째라면, 좌석 선택 화면으로 입장 가능하도록 설정
             // 추가 로직 (예: 좌석 선택 화면으로의 입장 관련 처리)
-            waitlistRepository.removeFromWaitlist(waitlistEntry);
+            waitlistRepository.removeFromWaitlist(waitlistEntry.getUserId(), waitlistEntry.getConcertId());
+
             return true;
         }
 

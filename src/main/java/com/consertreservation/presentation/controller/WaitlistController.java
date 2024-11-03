@@ -92,7 +92,7 @@ public class WaitlistController {
     }
 
     @PostMapping("/check-and-enter/{userId}")
-    public ResponseEntity<String> checkAndEnterIfTurn(@PathVariable Long userId) {
+    public ResponseEntity<String> checkAndEnterIfTurn(@PathVariable String userId) {
         boolean canEnter = waitlistFacade.checkAndEnterIfTurn(userId);
 
         if (canEnter) {

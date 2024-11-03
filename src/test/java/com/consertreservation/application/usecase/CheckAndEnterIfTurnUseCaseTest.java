@@ -27,7 +27,7 @@ class CheckAndEnterIfTurnUseCaseTest {
     //대기열에서 첫 번째 순번인 사용자가 입장 가능한지 확인
     void testUserCanEnterIfFirstInLine() {
         // given
-        Long userId = 1L;
+        String userId = "user123";
         Waitlist mockWaitlistEntry = new Waitlist();
 
         // When findFirstByUserId가 호출되면 mockWaitlistEntry 반환
@@ -42,13 +42,14 @@ class CheckAndEnterIfTurnUseCaseTest {
         assertTrue(canEnter, "대기열 첫 번째 사용자는 입장할 수 있어야 합니다.");
 
         // removeFromWaitlist 메서드가 mockWaitlistEntry로 호출되었는지 검증
-        verify(waitlistRepository).removeFromWaitlist(mockWaitlistEntry);
+        verify(waitlistRepository).removeFromWaitlist(mockWaitlistEntry.getUserId(), mockWaitlistEntry.getConcertId());
+
     }
 
     @Test
     //대기열에서 첫 번째 순번가 아닌 사용자가 입장 가능한지 확인
     void testUserCannotEnterIfNotFirstInLine() {
-        Long userId = 1L;
+        String userId = "user123";
 
         // 대기열의 첫 번째가 아닌 경우
         when(waitlistRepository.isFirstInLine(userId)).thenReturn(false);
