@@ -14,6 +14,8 @@ public class Concert {
     private String name;
     private LocalDate date;
     private String location;
+    private String description;  // 콘서트 설명
+    private Double price;        // 티켓 가격
 
     // 예시로 좌석 상태를 전체 상태로 관리하는 경우 (추가 논의 가능)
     private String seatStatus;
@@ -68,5 +70,21 @@ public class Concert {
 
     public void setSeatStatus(String seatStatus) {
         this.seatStatus = seatStatus;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
