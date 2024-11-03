@@ -3,6 +3,7 @@ package com.consertreservation.presentation.controller;
 import com.consertreservation.application.service.facade.ReservationFacade;
 import com.consertreservation.domain.model.Reservation;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -34,6 +35,7 @@ public class ReservationControllerTest {
     }
 
     @Test
+    @DisplayName("사용자 ID에 대한 예약정보가 올바르게 반환되는지 테스트")
     void testGetReservationsByUserId() throws Exception {
         // 준비
         Reservation reservation = new Reservation(); // 필요한 속성 설정

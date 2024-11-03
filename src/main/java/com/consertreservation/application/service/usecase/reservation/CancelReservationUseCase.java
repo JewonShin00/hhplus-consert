@@ -1,4 +1,4 @@
-package com.consertreservation.application.service.usecase;
+package com.consertreservation.application.service.usecase.reservation;
 
 import com.consertreservation.domain.model.Reservation;
 import com.consertreservation.domain.repository.ReservationRepository;

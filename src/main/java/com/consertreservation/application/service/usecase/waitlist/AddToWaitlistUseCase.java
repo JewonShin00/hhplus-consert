@@ -1,4 +1,4 @@
-package com.consertreservation.application.service.usecase;
+package com.consertreservation.application.service.usecase.waitlist;
 
 import com.consertreservation.domain.model.Waitlist;
 import com.consertreservation.domain.repository.ConcertRepository;

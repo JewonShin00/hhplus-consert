@@ -1,15 +1,19 @@
 package com.consertreservation.presentation.dto;
 
-public class ReserveSeatRequest {
+public class ReserveSeatDTO {
     private Long concertId;
     private Long seatId;
+    private String reservedBy; // 예약자
 
     // 생성자, Getter, Setter
-    public ReserveSeatRequest() {}
+    public ReserveSeatDTO(String reservedBy) {
+        this.reservedBy = reservedBy;
+    }
 
-    public ReserveSeatRequest(Long concertId, Long seatId) {
+    public ReserveSeatDTO(Long concertId, Long seatId, String reservedBy) {
         this.concertId = concertId;
         this.seatId = seatId;
+        this.reservedBy = reservedBy;
     }
 
     public Long getConcertId() {
@@ -26,5 +30,13 @@ public class ReserveSeatRequest {
 
     public void setSeatId(Long seatId) {
         this.seatId = seatId;
+    }
+
+    public String getReservedBy() {
+        return reservedBy;
+    }
+
+    public void setReservedBy(Long seatId) {
+        this.reservedBy = reservedBy;
     }
 }

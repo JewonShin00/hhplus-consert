@@ -1,4 +1,4 @@
-package com.consertreservation.application.service.usecase;
+package com.consertreservation.application.service.usecase.concert;
 
 import com.consertreservation.domain.model.Concert;
 import com.consertreservation.domain.model.Seat;

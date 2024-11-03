@@ -1,6 +1,7 @@
 package com.consertreservation.presentation.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ConcertDTO {
 
@@ -11,15 +12,19 @@ public class ConcertDTO {
     private String seatStatus; // 좌석 상태 (예: 'Available', 'Sold Out')
     private String description; // 콘서트에 대한 간단한 설명 또는 소개
     private Double price;      // 콘서트 티켓 가격
+
+    private List<SeatDTO> availableSeats; // 좌석 DTO 리스트
+
     // 기본 생성자
     public ConcertDTO() {}
     // 모든 필드를 초기화하는 생성자
-    public ConcertDTO(Long concertId, String name, LocalDate date, String location, String seatStatus) {
+    public ConcertDTO(Long concertId, String name, LocalDate date, String location, String seatStatus, List<SeatDTO> availableSeats) {
         this.concertId = concertId;
         this.name = name;
         this.date = date;
         this.location = location;
         this.seatStatus = seatStatus;
+        this.availableSeats = availableSeats; // 좌석 정보 설정
     }
 
     // Getters and Setters
@@ -61,5 +66,9 @@ public class ConcertDTO {
 
     public void setSeatStatus(String seatStatus) {
         this.seatStatus = seatStatus;
+    }
+
+    public List<SeatDTO> getAvailableSeats() {
+        return availableSeats;
     }
 }

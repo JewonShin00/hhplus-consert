@@ -2,8 +2,10 @@ package com.consertreservation.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Concert {
@@ -19,6 +21,9 @@ public class Concert {
 
     // 예시로 좌석 상태를 전체 상태로 관리하는 경우 (추가 논의 가능)
     private String seatStatus;
+
+    @OneToMany(mappedBy = "concert")
+    private List<Seat> seats; // Concert와 연결된 좌석들
 
     // 기본 생성자
     public Concert() {}
@@ -86,5 +91,13 @@ public class Concert {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public List<Seat> getSeats() {
+        return seats;
+    }
+
+    public void setSeats(List<Seat> seats) {
+        this.seats = seats;
     }
 }
