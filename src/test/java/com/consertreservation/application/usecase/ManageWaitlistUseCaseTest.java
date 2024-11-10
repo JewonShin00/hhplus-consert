@@ -91,7 +91,7 @@ class ManageWaitlistUseCaseTest {
         when(waitlistRepository.findByConcertId(concertId)).thenReturn(Collections.singletonList(waitlistEntry));
         // Mock the behavior of seatRepository to return available seats
         Seat availableSeat = new Seat(); // Create an instance of Seat
-        when(seatRepository.findByConcert_ConcertIdAndIsAvailable(concertId, true)).thenReturn(Collections.singletonList(availableSeat));
+        when(seatRepository.findAvailableSeatsByConcertId(concertId)).thenReturn(Collections.singletonList(availableSeat));
 
         // 사용자의 차례가 되었는지 확인
         String result = checkWaitlistForSeatUseCase.execute(concertId, userId);

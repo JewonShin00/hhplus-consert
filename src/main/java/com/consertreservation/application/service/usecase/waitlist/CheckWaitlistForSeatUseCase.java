@@ -36,7 +36,7 @@ public class CheckWaitlistForSeatUseCase {
         }
 
         // 여기에 예매 가능한 좌석 확인 로직 추가
-        List<Seat> availableSeats = seatRepository.findByConcert_ConcertIdAndIsAvailable(concertId, true);
+        List<Seat> availableSeats = seatRepository.findAvailableSeatsByConcertId(concertId);
         if (!availableSeats.isEmpty()) {
             return "It's your turn! Please check the available seats.";
         }

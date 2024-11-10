@@ -26,7 +26,7 @@ public class GetDetailConcertByIdUseCase {
                 .orElseThrow(() -> new NoSuchElementException("Concert not found with id: " + concertId));
 
         // 예약 가능한 좌석 조회
-        List<Seat> availableSeats = seatRepository.findByConcert_ConcertIdAndIsAvailable(concertId, true);
+        List<Seat> availableSeats = seatRepository.findAvailableSeatsByConcertId(concertId);
         concert.setSeats(availableSeats); // Concert에 좌석 정보 설정
 
         return concert;

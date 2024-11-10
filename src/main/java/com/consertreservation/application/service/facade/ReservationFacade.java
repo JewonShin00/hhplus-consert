@@ -32,7 +32,7 @@ public class ReservationFacade {
     }
 
     //좌석예약
-    public void reserveSeat(Long seatId, String reservedBy) {
-        reserveSeatUseCase.execute(seatId, reservedBy);
+    public void reserveSeat(Long concertId, String seatNumber, String reservedBy) {
+        reserveSeatUseCase.execute(concertId, seatNumber, reservedBy);
     }
 }

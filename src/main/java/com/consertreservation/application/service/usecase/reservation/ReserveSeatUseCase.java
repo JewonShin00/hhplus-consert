@@ -16,9 +16,11 @@ public class ReserveSeatUseCase {
         this.seatRepository = seatRepository;
     }
 
-    public void execute(Long seatId, String reservedBy) {
-        Seat seat = seatRepository.findById(seatId)
-                .orElseThrow(() -> new NoSuchElementException("Seat not found with id: " + seatId));
+    public void execute(Long concertId, String seatNumber, String reservedBy) {
+
+        // 좌석 조회
+        Seat seat = seatRepository.findByConcertIdAndSeatNumber(concertId, seatNumber)
+                .orElseThrow(() -> new NoSuchElementException("Seat not found with concert_id: " + concertId + " and seat_number: " + seatNumber));
 
         if (!seat.isAvailable()) {
             throw new IllegalStateException("Seat is not available"); // 예약 불가 시 예외 발생

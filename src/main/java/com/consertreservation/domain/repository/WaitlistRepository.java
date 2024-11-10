@@ -32,4 +32,6 @@ public interface WaitlistRepository extends JpaRepository<Waitlist, Long> {
     @Transactional
     @Query("DELETE FROM Waitlist w WHERE w.userId = :userId AND w.concertId = :concertId")
     void removeFromWaitlist(@Param("userId") String userId, @Param("concertId") Long concertId);
+
+    Waitlist findByConcertIdAndUserId(Long concertId, String userId);
 }

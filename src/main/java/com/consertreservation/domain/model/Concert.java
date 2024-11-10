@@ -47,6 +47,18 @@ public class Concert {
 
     }
 
+    @Override
+    public String toString() {
+        return "Concert{" +
+                "id=" + concertId +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", location='" + location + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
     // Getter와 Setter 메서드들 추가 (필요시 Lombok으로 자동 생성 가능)
     public Long getConcertId() {
         return concertId;

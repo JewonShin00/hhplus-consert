@@ -17,6 +17,6 @@ public class GetAvailableSeatsByConcertIdUseCase {
 
     // 콘서트 ID에 따라 예약 가능한 좌석 조회
     public List<Seat> execute(Long concertId) {
-        return seatRepository.findByConcert_ConcertIdAndIsAvailable(concertId, true);
+        return seatRepository.findAvailableSeatsByConcertId(concertId);
     }
 }

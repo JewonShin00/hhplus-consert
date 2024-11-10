@@ -35,4 +35,10 @@ public class AddToWaitlistUseCase {
         Waitlist waitlistEntry = new Waitlist(concertId, userId, newPosition, LocalDateTime.now());
         waitlistRepository.save(waitlistEntry);
     }
+
+    // AddToWaitlistUseCase 클래스에 추가
+    public int getCurrentPosition(Long concertId, String userId) {
+        return waitlistRepository.findByConcertIdAndUserId(concertId, userId).getPosition();
+    }
+
 }

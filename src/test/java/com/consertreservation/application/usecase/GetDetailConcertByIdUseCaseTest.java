@@ -41,7 +41,7 @@ public class GetDetailConcertByIdUseCaseTest {
         Seat seat2 = new Seat("A2", true, concert, null);
 
         when(concertRepository.findById(concertId)).thenReturn(java.util.Optional.of(concert));
-        when(seatRepository.findByConcert_ConcertIdAndIsAvailable(concertId, true))
+        when(seatRepository.findAvailableSeatsByConcertId(concertId))
                 .thenReturn(Arrays.asList(seat1, seat2));
 
         Concert resultConcert = getDetailConcertByIdUseCase.execute(concertId);
