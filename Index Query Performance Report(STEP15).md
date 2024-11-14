@@ -17,6 +17,7 @@
   - 또한 MySQL에서 직접 쿼리를 실행하고, `performance_schema`를 통해 쿼리 실행 시간을 확인했습니다.(DBeaver)
 
 - **JMeter 성능 테스트 결과**:
+  
 ![인덱스적용전_1000건 테스트](https://github.com/user-attachments/assets/d74bdc60-3021-400e-af32-97fc9cd934b4)
 
   - **평균 응답 시간**: **190 ms**
@@ -25,6 +26,7 @@
   - **처리량(Throughput)**: **937.2/sec**
 
 - **직접 쿼리 실행 결과**:
+  
 ![인덱스적용전_직접쿼리테스트](https://github.com/user-attachments/assets/9c1598d4-61d9-4d09-a08e-577f582d2735)
 
   - **쿼리 실행 시간**: **0.9457 ms**
