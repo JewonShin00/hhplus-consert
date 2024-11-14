@@ -63,14 +63,17 @@
 
 - **직접 쿼리 실행 테스트 결과 비교**:
   1. **concert_concert_id 인덱스 추가 후**:
+     
 ![인덱스적용후_직접쿼리테스트_concert_id](https://github.com/user-attachments/assets/324d6807-c848-466e-9bbe-7c39ff1e3530)
 
     - **쿼리 실행 시간**: **0.9457 ms**
   2. **seat_number 인덱스 추가 후**:
+      
 ![인덱스적용후_직접쿼리테스트_seat_number](https://github.com/user-attachments/assets/06f51603-1cf6-4b3a-a45d-2277caaa926a)
 
     - **쿼리 실행 시간**: **0.9457 ms**
   3. **복합 인덱스 추가 후**:
+      
 ![인덱스적용후_직접쿼리테스트_복합](https://github.com/user-attachments/assets/17e0baad-d7e3-4051-8f4d-6c9df77c1b3a)
 
     - **쿼리 실행 시간**: **0.9457 ms**
