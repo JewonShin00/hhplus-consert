@@ -31,8 +31,8 @@ public class ReservationController {
     }
 
     @PostMapping("/{reservationId}/cancel")
-    public ResponseEntity<?> cancelReservation(@PathVariable Long reservationId) {
-        reservationFacade.cancelReservation(reservationId);
+    public ResponseEntity<?> cancelReservation(@PathVariable Long concertId, @PathVariable String seatNumber) {
+        reservationFacade.cancelReservation(concertId, seatNumber);
         return ResponseEntity.ok().build();
     }
 

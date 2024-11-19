@@ -49,9 +49,9 @@ public class ConcertFacade {
         return getAvailableSeatsByConcertIdUseCase.execute(concertId);
     }
 
-    public String addToWaitlistAndIssueToken(Long concertId, String userId) {
+    public String addToWaitlistAndIssueToken(Long concertId, String userId, String seatNumber) {
         // 대기열에 사용자 추가
-        addToWaitlistUseCase.execute(concertId, userId);
+        addToWaitlistUseCase.execute(concertId, userId, seatNumber);
 
         // 현재 대기열 순번 가져오기
         int queuePosition = getCurrentQueuePositionUseCase.execute(concertId, userId);

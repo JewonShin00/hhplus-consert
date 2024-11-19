@@ -39,14 +39,14 @@ class ManageWaitlistUseCaseTest {
     void testAddToWaitlist_Success() {
         Long concertId = 1L;
         String userId = "user123";
-
+        String seatNumber = "11";
         // 콘서트가 존재한다고 가정
         when(concertRepository.existsById(concertId)).thenReturn(true);
         // 사용자가 대기열에 없다고 가정
-        when(waitlistRepository.existsByConcertIdAndUserId(concertId, userId)).thenReturn(false);
+        when(waitlistRepository.existsByConcertIdAndUserIdAndSeatNumber(concertId, userId, seatNumber)).thenReturn(false);
 
         // 대기열에 추가
-        addToWaitlistUseCase.execute(concertId, userId);
+        addToWaitlistUseCase.execute(concertId, userId, seatNumber);
 
         // 대기열에 추가된 항목이 저장된지 확인
         verify(waitlistRepository, times(1)).save(any(Waitlist.class));
@@ -57,13 +57,14 @@ class ManageWaitlistUseCaseTest {
     void testAddToWaitlist_UserAlreadyInWaitlist() {
         Long concertId = 1L;
         String userId = "user123";
+        String seatNumber = "11";
 
         when(concertRepository.existsById(concertId)).thenReturn(true);
-        when(waitlistRepository.existsByConcertIdAndUserId(concertId, userId)).thenReturn(true);
+        when(waitlistRepository.existsByConcertIdAndUserIdAndSeatNumber(concertId, userId, seatNumber)).thenReturn(true);
 
         // 예외가 발생할 것으로 예상
         assertThrows(IllegalArgumentException.class, () -> {
-            addToWaitlistUseCase.execute(concertId, userId);
+            addToWaitlistUseCase.execute(concertId, userId, seatNumber);
         });
     }
 
@@ -72,12 +73,12 @@ class ManageWaitlistUseCaseTest {
     void testAddToWaitlist_ConcertNotFound() {
         Long concertId = 1L;
         String userId = "user123";
-
+        String seatNumber = "11";
         when(concertRepository.existsById(concertId)).thenReturn(false);
 
         // 예외가 발생할 것으로 예상
         assertThrows(IllegalArgumentException.class, () -> {
-            addToWaitlistUseCase.execute(concertId, userId);
+            addToWaitlistUseCase.execute(concertId, userId, seatNumber);
         });
     }
 
@@ -86,7 +87,9 @@ class ManageWaitlistUseCaseTest {
     void testCheckWaitlistForSeat_Success() {
         Long concertId = 1L;
         String userId = "user123";
-        Waitlist waitlistEntry = new Waitlist(concertId, userId, 1, LocalDateTime.now());
+        String seatNumber = "11";
+
+        Waitlist waitlistEntry = new Waitlist(concertId, userId, 1, LocalDateTime.now(), seatNumber);
 
         when(waitlistRepository.findByConcertId(concertId)).thenReturn(Collections.singletonList(waitlistEntry));
         // Mock the behavior of seatRepository to return available seats
@@ -104,7 +107,9 @@ class ManageWaitlistUseCaseTest {
     void testCheckWaitlistForSeat_NotYetTurn() {
         Long concertId = 1L;
         String userId = "user123";
-        Waitlist waitlistEntry = new Waitlist(concertId, userId, 2, LocalDateTime.now()); // 순번을 2로 설정
+        String seatNumber = "11";
+
+        Waitlist waitlistEntry = new Waitlist(concertId, userId, 2, LocalDateTime.now(), seatNumber); // 순번을 2로 설정
 
         // 대기열 목록을 Mock으로 설정
         when(waitlistRepository.findByConcertId(concertId)).thenReturn(Collections.singletonList(waitlistEntry));

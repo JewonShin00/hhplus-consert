@@ -38,8 +38,8 @@ public class ReservationFacade {
         return findReservationsByUserIdUseCase.execute(userId);
     }
 
-    public void cancelReservation(Long reservationId) {
-        cancelReservationUseCase.execute(reservationId);
+    public void cancelReservation(Long concertId, String seatNumber) {
+        cancelReservationUseCase.execute(concertId, seatNumber);
     }
 
     //좌석예약

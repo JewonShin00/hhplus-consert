@@ -16,7 +16,7 @@ public class AddToWaitlistUseCase {
         this.concertRepository = concertRepository;
     }
 
-    public void execute(Long concertId, String userId) {
+    public void execute(Long concertId, String userId, String seatNumber) {
         // 대기열에 사용자 추가 로직
         // 해당 콘서트가 존재하는지 확인
         if (!concertRepository.existsById(concertId)) {
@@ -24,7 +24,7 @@ public class AddToWaitlistUseCase {
         }
 
         // 사용자가 이미 대기열에 등록되어 있는지 확인
-        if (waitlistRepository.existsByConcertIdAndUserId(concertId, userId)) {
+        if (waitlistRepository.existsByConcertIdAndUserIdAndSeatNumber(concertId, userId, seatNumber)) {
             throw new IllegalArgumentException("User already in waitlist for concert id: " + concertId);
         }
 
@@ -32,7 +32,7 @@ public class AddToWaitlistUseCase {
         int currentWaitlistSize = waitlistRepository.findByConcertId(concertId).size();
         int newPosition = currentWaitlistSize + 1; // 대기열 순번 설정 (1부터 시작)
 
-        Waitlist waitlistEntry = new Waitlist(concertId, userId, newPosition, LocalDateTime.now());
+        Waitlist waitlistEntry = new Waitlist(concertId, userId, newPosition, LocalDateTime.now(), seatNumber);
         waitlistRepository.save(waitlistEntry);
     }
 

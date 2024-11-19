@@ -35,8 +35,8 @@ public class WaitlistFacade {
     }
 
     // 대기열에 추가하는 메서드
-    public void addToWaitlist(Long concertId, String userId) {
-        addToWaitlistUseCase.execute(concertId, userId);
+    public void addToWaitlist(Long concertId, String userId, String seatNumber) {
+        addToWaitlistUseCase.execute(concertId, userId, seatNumber);
     }
     // 대기열 조회
     public List<Waitlist> getWaitlist(Long concertId) {

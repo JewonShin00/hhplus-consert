@@ -16,16 +16,20 @@ public class Waitlist {
     private String userId; // 대기 중인 사용자 ID
     private Integer position; // 대기열 순번
     private LocalDateTime reservationAttemptTime; // 예매 시도 시간
+    private String seatNumber;  // 좌석 번호
 
     // 기본 생성자
-    public Waitlist() {}
+    public Waitlist() {
+
+    }
 
     // 생성자
-    public Waitlist(Long concertId, String userId, Integer position, LocalDateTime reservationAttemptTime) {
+    public Waitlist(Long concertId, String userId, Integer position, LocalDateTime reservationAttemptTime, String seatNumber) {
         this.concertId = concertId;
         this.userId = userId;
         this.position = position;
         this.reservationAttemptTime = reservationAttemptTime;
+        this.seatNumber = seatNumber;
     }
 
     // Getter와 Setter
@@ -49,6 +53,8 @@ public class Waitlist {
         return reservationAttemptTime;
     }
 
+    public String getSeatNumber() { return seatNumber;}
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -65,7 +71,7 @@ public class Waitlist {
         this.position = position;
     }
 
-    public void setReservationAttemptTime(LocalDateTime reservationAttemptTime) {
-        this.reservationAttemptTime = reservationAttemptTime;
-    }
+    public void setReservationAttemptTime(LocalDateTime reservationAttemptTime) {this.reservationAttemptTime = reservationAttemptTime;}
+
+    public void setSeatNumber(String seatNumber) {this.seatNumber = seatNumber;}
 }

@@ -1,10 +1,6 @@
 package com.consertreservation.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Seat {
@@ -15,21 +11,37 @@ public class Seat {
     private String seatNumber;  // 좌석 번호
     private boolean isAvailable; // 예약 가능 여부
 
+    @Enumerated(EnumType.STRING)
+    private SeatStatus seatStatus; // 좌석 상태 (Enum 타입)
+
+    public enum SeatStatus {
+        AVAILABLE,   // 예약 가능
+        RESERVED,    // 예약 완료
+        CONFIRMED,   // 결제 완료
+        PENDING,     // 결제 대기
+        CANCELLED,   // 예약 취소
+        WAITLISTED   // 대기열에 포함된 상태
+    }
+
     @ManyToOne
     private Concert concert; // Concert와의 다대일 관계
+
+
+    private String reservedBy; // 예약자
 
     // 기본 생성자
     public Seat() {}
 
-    private String reservedBy; // 예약자
-
     // 생성자
-    public Seat(String seatNumber, boolean isAvailable, Concert concert, String reservedBy) {
+    public Seat(String seatNumber, boolean isAvailable, Concert concert, String reservedBy, SeatStatus seatStatus) {
         this.seatNumber = seatNumber;
         this.isAvailable = isAvailable;
         this.concert = concert;
         this.reservedBy = reservedBy; // 예약자
+        this.seatStatus = seatStatus;
     }
+
+
 
     // Getter와 Setter
     public Long getSeatId() {
@@ -52,6 +64,8 @@ public class Seat {
         return reservedBy; // 예약자 정보 반환
     }
 
+    public SeatStatus getSeatStatus() {return seatStatus;}
+
     public void setSeatId(Long seatId) {
         this.seatId = seatId;
     }
@@ -68,7 +82,7 @@ public class Seat {
         this.concert = concert;
     }
 
-    public void setReservedBy(String reservedBy) {
-        this.reservedBy = reservedBy; // 예약자
-    }
+    public void setReservedBy(String reservedBy) {this.reservedBy = reservedBy;} // 예약자
+
+    public void setSeatStatus(SeatStatus seatStatus) {this.seatStatus = seatStatus;}
 }

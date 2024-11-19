@@ -3,6 +3,7 @@ package com.consertreservation.presentation.controller;
 import com.consertreservation.application.service.facade.WaitlistFacade;
 import com.consertreservation.domain.model.Waitlist;
 import com.consertreservation.presentation.dto.ReserveSeatDTO;
+import com.consertreservation.presentation.dto.SeatDTO;
 import com.consertreservation.presentation.dto.WaitlistDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +44,9 @@ public class WaitlistController {
 
     // 대기열에 추가하는 엔드포인트
     @PostMapping("/{concertId}/waitlist")
-    public ResponseEntity<Void> addToWaitlist(@PathVariable Long concertId, @RequestBody WaitlistDTO waitlistDTO) {
+    public ResponseEntity<Void> addToWaitlist(@PathVariable Long concertId, @RequestBody WaitlistDTO waitlistDTO, @RequestBody SeatDTO seatDTO) {
         try {
-            waitlistFacade.addToWaitlist(concertId, waitlistDTO.getUserId());
+            waitlistFacade.addToWaitlist(concertId, waitlistDTO.getUserId(), seatDTO.getSeatNumber());
             return ResponseEntity.ok().build();
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(null); // Bad Request 400

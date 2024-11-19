@@ -48,10 +48,11 @@ public class ConcertController {
         }
     }
     // 콘서트 상세 정보 및 예약 가능한 좌석 조회
+/*
     @GetMapping("/api/concerts/{id}/details")
-    public ResponseEntity<?> getConcertDetails(@PathVariable Long id) {
+    public ResponseEntity<?> getConcertDetails(@PathVariable Long concertId) {
         try {
-            Concert concert = concertFacade.getDetailConcertById(id);
+            Concert concert = concertFacade.getDetailConcertById(concertId);
             List<Seat> availableSeats = concert.getSeats().stream()
                     .filter(Seat::isAvailable)
                     .collect(Collectors.toList());
@@ -59,7 +60,7 @@ public class ConcertController {
             // 예약 가능한 좌석이 없는 경우 대기열에 추가
             if (availableSeats.isEmpty()) {
                 String userId = ""; // JWT 등에서 사용자 ID를 가져오는 로직 필요
-                waitlistFacade.addToWaitlist(id, userId);
+                waitlistFacade.addToWaitlist(concertId, userId, seatNumber);
                 return ResponseEntity.status(HttpStatus.CONFLICT)
                         .body("No available seats. You have been added to the waitlist. You will be notified when a seat becomes available.");
             }
@@ -73,6 +74,7 @@ public class ConcertController {
                     .body("An error occurred while retrieving concert details.");
         }
     }
+*/
 
 
 

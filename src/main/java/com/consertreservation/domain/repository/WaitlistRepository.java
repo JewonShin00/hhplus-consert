@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface WaitlistRepository extends JpaRepository<Waitlist, Long> {
@@ -18,7 +19,7 @@ public interface WaitlistRepository extends JpaRepository<Waitlist, Long> {
     // 특정 사용자 ID로 대기열 조회
     List<Waitlist> findByUserId(String userId);
 
-    boolean existsByConcertIdAndUserId(Long concertId, String userId);
+    boolean existsByConcertIdAndUserIdAndSeatNumber(Long concertId, String userId, String seatNumber);
 
     // 사용자가 대기열에 있는지 확인하는 메서드
     Waitlist findFirstByUserId(String userId);
@@ -34,4 +35,7 @@ public interface WaitlistRepository extends JpaRepository<Waitlist, Long> {
     void removeFromWaitlist(@Param("userId") String userId, @Param("concertId") Long concertId);
 
     Waitlist findByConcertIdAndUserId(Long concertId, String userId);
+
+    Optional<Waitlist> findFirstByConcertIdAndSeatNumberOrderByReservationAttemptTime(Long concertId, String seatNumber);
+
 }
