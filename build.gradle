@@ -30,6 +30,12 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
     testImplementation 'com.h2database:h2'
+    // Kafka
+    implementation 'org.springframework.kafka:spring-kafka:3.0.10'
+    // Kafka Test 및 EmbeddedKafka 의존성
+    testImplementation 'org.springframework.kafka:spring-kafka-test:3.0.10'
+    // Testcontainers - Kafka
+    testImplementation 'org.testcontainers:kafka:1.19.0'
 }
 
 test {
